@@ -1,8 +1,8 @@
 module KaprekarRoutine4
 
-type digit = d:int{0 <= d /\ d <= 9}
-type number4 = n:int{0 <= n /\ n <= 9999}
-type alpha4 = a:int{1 <= a /\ a <= 9}
+open KaprekarGapState
+
+type alpha4 = nonzero_gap
 
 let sort2_desc (a b:int) = if a >= b then (a, b) else (b, a)
 let sort4_desc (a b c d:int) =
@@ -25,7 +25,7 @@ let step3 n = kaprekar_step (step2 n)
 let step4 n = kaprekar_step (step3 n)
 let step5 n = kaprekar_step (step4 n)
 let step6 n = kaprekar_step (step5 n)
-let state (a:alpha4) (b:int{0 <= b /\ b <= a}) : number4 = 999 * a + 90 * b
+let state (a:alpha4) (b:int{0 <= b /\ b <= a}) : number4 = gap_state_4 a b
 let reaches_6174_from (n:number4) =
   n == 6174 \/
   kaprekar_step n == 6174 \/
@@ -121,7 +121,8 @@ let first_step_shape (a b c d:digit) : Lemma
   (ensures (
     let (w, x, y, z) = sort4_desc a b c d in
     kaprekar_step_digits a b c d == state (w - z) (x - y))) =
-  ()
+  let (w, x, y, z) = sort4_desc a b c d in
+  gap_state_4_formula (w - z) (x - y)
 
 let reaches_6174 (a b c d:digit) : Lemma
   (requires (distinct_digits a b c d))

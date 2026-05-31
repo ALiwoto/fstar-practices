@@ -142,9 +142,10 @@ try {
     foreach ($file in $proofFiles) {
         $index += 1
         $relativePath = ConvertTo-RepoRelativePath $file.FullName
+        $relativeDirectory = ConvertTo-RepoRelativePath $file.DirectoryName
         Write-Status "[$index/$($proofFiles.Count)] Verifying $relativePath" $Colors.Accent
 
-        $commandArgs = @($FStarArgs) + @($relativePath)
+        $commandArgs = @($FStarArgs) + @("--include", $relativeDirectory, $relativePath)
         $stdoutFile = New-TemporaryFile
         $stderrFile = New-TemporaryFile
 

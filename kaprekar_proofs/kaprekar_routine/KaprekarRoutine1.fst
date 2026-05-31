@@ -1,8 +1,6 @@
 module KaprekarRoutine1
 
-type digit = d:int{0 <= d /\ d <= 9}
-
-type number1 = n:int{0 <= n /\ n <= 9}
+open KaprekarGapState
 
 let kaprekar_step_digit (d:digit) : number1 = d - d
 

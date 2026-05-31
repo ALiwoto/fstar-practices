@@ -1,8 +1,8 @@
 module KaprekarRoutine2
 
-type digit = d:int{0 <= d /\ d <= 9}
-type number2 = n:int{0 <= n /\ n <= 99}
-type delta2 = d:int{1 <= d /\ d <= 9}
+open KaprekarGapState
+
+type delta2 = nonzero_gap
 
 let max2 (a b:int) = if a >= b then a else b
 let min2 (a b:int) = if a <= b then a else b
@@ -29,7 +29,7 @@ let reaches_09_from (n:number2) =
   step4 n == 9 \/
   step5 n == 9
 
-let delta_state (d:delta2) : number2 = 9 * d
+let delta_state (d:delta2) : number2 = gap_state_2 d
 
 let delta_1_reaches () : Lemma (reaches_09_from (delta_state 1)) = assert_norm (reaches_09_from (delta_state 1))
 let delta_2_reaches () : Lemma (reaches_09_from (delta_state 2)) = assert_norm (reaches_09_from (delta_state 2))
@@ -57,7 +57,7 @@ let distinct_digits (a b:digit) = a <> b
 let first_step_delta (a b:digit) : Lemma
   (requires (distinct_digits a b))
   (ensures (kaprekar_step_digits a b == delta_state (max2 a b - min2 a b))) =
-  ()
+  gap_state_2_formula (max2 a b - min2 a b)
 
 let reaches_09 (a b:digit) : Lemma
   (requires (distinct_digits a b))
