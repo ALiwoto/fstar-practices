@@ -2,7 +2,8 @@
 param(
     [string[]] $ProofRoots = @("basic_proofs", "kaprekar_proofs"),
     [string[]] $FStarArgs = @(),
-    [switch] $FailFast
+    [switch] $FailFast,
+    [switch] $NoColor
 )
 
 $ErrorActionPreference = "Stop"
@@ -11,6 +12,86 @@ if ($PSScriptRoot) {
     $RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 } else {
     $RepoRoot = Resolve-Path "."
+}
+
+function Test-HostColorSupport {
+    $privateData = $Host.PrivateData
+    if ($null -eq $privateData) {
+        return $false
+    }
+
+    $colorProperties = @(
+        "FormatAccentColor",
+        "ErrorAccentColor",
+        "ErrorForegroundColor",
+        "ErrorBackgroundColor",
+        "WarningForegroundColor",
+        "WarningBackgroundColor",
+        "DebugForegroundColor",
+        "DebugBackgroundColor",
+        "VerboseForegroundColor",
+        "VerboseBackgroundColor",
+        "ProgressForegroundColor",
+        "ProgressBackgroundColor"
+    )
+
+    foreach ($propertyName in $colorProperties) {
+        if ($privateData.PSObject.Properties[$propertyName]) {
+            return $true
+        }
+    }
+
+    return $false
+}
+
+function Get-HostColor {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string] $PropertyName,
+
+        [Parameter(Mandatory = $true)]
+        [System.ConsoleColor] $Fallback
+    )
+
+    $privateData = $Host.PrivateData
+    if ($null -eq $privateData) {
+        return $Fallback
+    }
+
+    $property = $privateData.PSObject.Properties[$PropertyName]
+    if ($property) {
+        try {
+            return [System.ConsoleColor] $property.Value
+        } catch {
+            return $Fallback
+        }
+    }
+
+    return $Fallback
+}
+
+$UseColor = -not $NoColor -and (Test-HostColorSupport)
+$Colors = @{
+    Accent = Get-HostColor "ErrorAccentColor" ([System.ConsoleColor]::Cyan)
+    Error = Get-HostColor "ErrorForegroundColor" ([System.ConsoleColor]::Red)
+    Warning = Get-HostColor "WarningForegroundColor" ([System.ConsoleColor]::Yellow)
+    Success = [System.ConsoleColor]::Green
+}
+
+function Write-Status {
+    param(
+        [Parameter(Mandatory = $true)]
+        [AllowEmptyString()]
+        [string] $Message,
+
+        [System.ConsoleColor] $ForegroundColor = [System.ConsoleColor]::Gray
+    )
+
+    if ($UseColor) {
+        Write-Host $Message -ForegroundColor $ForegroundColor
+    } else {
+        Write-Host $Message
+    }
 }
 
 function ConvertTo-RepoRelativePath {
@@ -37,7 +118,7 @@ $proofFiles = foreach ($root in $ProofRoots) {
     $rootPath = Join-Path $RepoRoot $root
 
     if (-not (Test-Path -LiteralPath $rootPath -PathType Container)) {
-        Write-Warning "Proof root not found: $root"
+        Write-Status "WARNING: Proof root not found: $root" $Colors.Warning
         continue
     }
 
@@ -61,7 +142,7 @@ try {
     foreach ($file in $proofFiles) {
         $index += 1
         $relativePath = ConvertTo-RepoRelativePath $file.FullName
-        Write-Host "[$index/$($proofFiles.Count)] Verifying $relativePath"
+        Write-Status "[$index/$($proofFiles.Count)] Verifying $relativePath" $Colors.Accent
 
         $commandArgs = @($FStarArgs) + @($relativePath)
         $stdoutFile = New-TemporaryFile
@@ -96,7 +177,7 @@ try {
 
         if ($exitCode -eq 0 -and -not $reportedErrors) {
             $passed += 1
-            Write-Host "  OK"
+            Write-Status "  OK" $Colors.Success
             continue
         }
 
@@ -106,9 +187,9 @@ try {
             Output = $outputText
         }) | Out-Null
 
-        Write-Host "  FAILED"
+        Write-Status "  FAILED" $Colors.Error
         if ($outputText) {
-            $outputText
+            Write-Status $outputText $Colors.Error
         }
 
         if ($FailFast) {
@@ -119,15 +200,16 @@ try {
     Pop-Location
 }
 
-Write-Host ""
+Write-Status ""
 $checked = $passed + $failed.Count
-Write-Host "Summary: $passed passed, $($failed.Count) failed, $checked checked, $($proofFiles.Count) total"
+$summaryColor = if ($failed.Count -gt 0) { $Colors.Error } else { $Colors.Success }
+Write-Status "Summary: $passed passed, $($failed.Count) failed, $checked checked, $($proofFiles.Count) total" $summaryColor
 
 if ($failed.Count -gt 0) {
-    Write-Host ""
-    Write-Host "Failed proofs:"
+    Write-Status ""
+    Write-Status "Failed proofs:" $Colors.Error
     foreach ($failure in $failed) {
-        Write-Host "  - $($failure.Path)"
+        Write-Status "  - $($failure.Path)" $Colors.Error
     }
     exit 1
 }

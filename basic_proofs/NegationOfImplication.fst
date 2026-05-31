@@ -8,20 +8,20 @@ module NegationOfImplication
 // but the consequent (Q) is false.
 // See also: https://math.stackexchange.com/q/2417770
 
-let negation_of_implication (p: Type0) (q: Type0) : Lemma
+let negation_of_implication (p: prop) (q: prop) : Lemma
   (ensures (~(p ==> q)) <==> (p /\ ~q)) =
   ()
 
 // an implication p → q is equivalent to ¬p ∨ q
-let material_implication (p: Type0) (q: Type0) : Lemma
+let material_implication (p: prop) (q: prop) : Lemma
   (ensures (p ==> q) <==> (~p \/ q)) =
   ()
 
-let exportation_law (p: Type0) (q: Type0) (r: Type0) : Lemma
+let exportation_law (p: prop) (q: prop) (r: prop) : Lemma
   (ensures (p ==> (q ==> r)) <==> (q ==> (p ==> r))) =
   ()
 
-let always_ok (p: Type0) (q: Type0): Lemma
+let always_ok (p: prop) (q: prop): Lemma
   (ensures (p ==> (p \/ q)) ) =
   ()
 
@@ -29,11 +29,11 @@ let always_ok (p: Type0) (q: Type0): Lemma
 // This is a logical statement saying "for all x and y, if xy=0, then either x=0 or y=0".
 // This is a property that holds in integral domains.
 let existence_zero_product (x y : int) : Lemma
-  (requires (op_Multiply x y = 0))
+  (requires (x * y = 0))
   (ensures (x = 0 || y = 0)) = ()
 
 // NOT-∃ x,y : xy=0 ∧ (x≠0 ∧ y≠0)
 // "for all x and y, xy=0 and (x is not 0 and y is not 0)"
 let non_existence_zero_product (x y : int) : Lemma
-  (requires (op_Multiply x y = 0 && x <> 0 && y <> 0))
+  (requires (x * y = 0 && x <> 0 && y <> 0))
   (ensures (false)) = ()
