@@ -34,123 +34,69 @@ let reaches_6174_from (n:number4) =
   step4 n == 6174 \/
   step5 n == 6174 \/
   step6 n == 6174
-let state_1_0_reaches () : Lemma (reaches_6174_from (state 1 0)) = assert_norm (reaches_6174_from (state 1 0))
-let state_1_1_reaches () : Lemma (reaches_6174_from (state 1 1)) = assert_norm (reaches_6174_from (state 1 1))
-let state_2_0_reaches () : Lemma (reaches_6174_from (state 2 0)) = assert_norm (reaches_6174_from (state 2 0))
-let state_2_1_reaches () : Lemma (reaches_6174_from (state 2 1)) = assert_norm (reaches_6174_from (state 2 1))
-let state_2_2_reaches () : Lemma (reaches_6174_from (state 2 2)) = assert_norm (reaches_6174_from (state 2 2))
-let state_3_0_reaches () : Lemma (reaches_6174_from (state 3 0)) = assert_norm (reaches_6174_from (state 3 0))
-let state_3_1_reaches () : Lemma (reaches_6174_from (state 3 1)) = assert_norm (reaches_6174_from (state 3 1))
-let state_3_2_reaches () : Lemma (reaches_6174_from (state 3 2)) = assert_norm (reaches_6174_from (state 3 2))
-let state_3_3_reaches () : Lemma (reaches_6174_from (state 3 3)) = assert_norm (reaches_6174_from (state 3 3))
-let state_4_0_reaches () : Lemma (reaches_6174_from (state 4 0)) = assert_norm (reaches_6174_from (state 4 0))
-let state_4_1_reaches () : Lemma (reaches_6174_from (state 4 1)) = assert_norm (reaches_6174_from (state 4 1))
-let state_4_2_reaches () : Lemma (reaches_6174_from (state 4 2)) = assert_norm (reaches_6174_from (state 4 2))
-let state_4_3_reaches () : Lemma (reaches_6174_from (state 4 3)) = assert_norm (reaches_6174_from (state 4 3))
-let state_4_4_reaches () : Lemma (reaches_6174_from (state 4 4)) = assert_norm (reaches_6174_from (state 4 4))
-let state_5_0_reaches () : Lemma (reaches_6174_from (state 5 0)) = assert_norm (reaches_6174_from (state 5 0))
-let state_5_1_reaches () : Lemma (reaches_6174_from (state 5 1)) = assert_norm (reaches_6174_from (state 5 1))
-let state_5_2_reaches () : Lemma (reaches_6174_from (state 5 2)) = assert_norm (reaches_6174_from (state 5 2))
-let state_5_3_reaches () : Lemma (reaches_6174_from (state 5 3)) = assert_norm (reaches_6174_from (state 5 3))
-let state_5_4_reaches () : Lemma (reaches_6174_from (state 5 4)) = assert_norm (reaches_6174_from (state 5 4))
-let state_5_5_reaches () : Lemma (reaches_6174_from (state 5 5)) = assert_norm (reaches_6174_from (state 5 5))
-let state_6_0_reaches () : Lemma (reaches_6174_from (state 6 0)) = assert_norm (reaches_6174_from (state 6 0))
-let state_6_1_reaches () : Lemma (reaches_6174_from (state 6 1)) = assert_norm (reaches_6174_from (state 6 1))
-let state_6_2_reaches () : Lemma (reaches_6174_from (state 6 2)) = assert_norm (reaches_6174_from (state 6 2))
-let state_6_3_reaches () : Lemma (reaches_6174_from (state 6 3)) = assert_norm (reaches_6174_from (state 6 3))
-let state_6_4_reaches () : Lemma (reaches_6174_from (state 6 4)) = assert_norm (reaches_6174_from (state 6 4))
-let state_6_5_reaches () : Lemma (reaches_6174_from (state 6 5)) = assert_norm (reaches_6174_from (state 6 5))
-let state_6_6_reaches () : Lemma (reaches_6174_from (state 6 6)) = assert_norm (reaches_6174_from (state 6 6))
-let state_7_0_reaches () : Lemma (reaches_6174_from (state 7 0)) = assert_norm (reaches_6174_from (state 7 0))
-let state_7_1_reaches () : Lemma (reaches_6174_from (state 7 1)) = assert_norm (reaches_6174_from (state 7 1))
-let state_7_2_reaches () : Lemma (reaches_6174_from (state 7 2)) = assert_norm (reaches_6174_from (state 7 2))
-let state_7_3_reaches () : Lemma (reaches_6174_from (state 7 3)) = assert_norm (reaches_6174_from (state 7 3))
-let state_7_4_reaches () : Lemma (reaches_6174_from (state 7 4)) = assert_norm (reaches_6174_from (state 7 4))
-let state_7_5_reaches () : Lemma (reaches_6174_from (state 7 5)) = assert_norm (reaches_6174_from (state 7 5))
-let state_7_6_reaches () : Lemma (reaches_6174_from (state 7 6)) = assert_norm (reaches_6174_from (state 7 6))
-let state_7_7_reaches () : Lemma (reaches_6174_from (state 7 7)) = assert_norm (reaches_6174_from (state 7 7))
-let state_8_0_reaches () : Lemma (reaches_6174_from (state 8 0)) = assert_norm (reaches_6174_from (state 8 0))
-let state_8_1_reaches () : Lemma (reaches_6174_from (state 8 1)) = assert_norm (reaches_6174_from (state 8 1))
-let state_8_2_reaches () : Lemma (reaches_6174_from (state 8 2)) = assert_norm (reaches_6174_from (state 8 2))
-let state_8_3_reaches () : Lemma (reaches_6174_from (state 8 3)) = assert_norm (reaches_6174_from (state 8 3))
-let state_8_4_reaches () : Lemma (reaches_6174_from (state 8 4)) = assert_norm (reaches_6174_from (state 8 4))
-let state_8_5_reaches () : Lemma (reaches_6174_from (state 8 5)) = assert_norm (reaches_6174_from (state 8 5))
-let state_8_6_reaches () : Lemma (reaches_6174_from (state 8 6)) = assert_norm (reaches_6174_from (state 8 6))
-let state_8_7_reaches () : Lemma (reaches_6174_from (state 8 7)) = assert_norm (reaches_6174_from (state 8 7))
-let state_8_8_reaches () : Lemma (reaches_6174_from (state 8 8)) = assert_norm (reaches_6174_from (state 8 8))
-let state_9_0_reaches () : Lemma (reaches_6174_from (state 9 0)) = assert_norm (reaches_6174_from (state 9 0))
-let state_9_1_reaches () : Lemma (reaches_6174_from (state 9 1)) = assert_norm (reaches_6174_from (state 9 1))
-let state_9_2_reaches () : Lemma (reaches_6174_from (state 9 2)) = assert_norm (reaches_6174_from (state 9 2))
-let state_9_3_reaches () : Lemma (reaches_6174_from (state 9 3)) = assert_norm (reaches_6174_from (state 9 3))
-let state_9_4_reaches () : Lemma (reaches_6174_from (state 9 4)) = assert_norm (reaches_6174_from (state 9 4))
-let state_9_5_reaches () : Lemma (reaches_6174_from (state 9 5)) = assert_norm (reaches_6174_from (state 9 5))
-let state_9_6_reaches () : Lemma (reaches_6174_from (state 9 6)) = assert_norm (reaches_6174_from (state 9 6))
-let state_9_7_reaches () : Lemma (reaches_6174_from (state 9 7)) = assert_norm (reaches_6174_from (state 9 7))
-let state_9_8_reaches () : Lemma (reaches_6174_from (state 9 8)) = assert_norm (reaches_6174_from (state 9 8))
-let state_9_9_reaches () : Lemma (reaches_6174_from (state 9 9)) = assert_norm (reaches_6174_from (state 9 9))
 let state_reaches_alpha_1 (b:int{0 <= b /\ b <= 1}) : Lemma (reaches_6174_from (state 1 b)) =
-  if b == 0 then (assert (state 1 b == state 1 0); state_1_0_reaches ()) else
-  (assert (state 1 b == state 1 1); state_1_1_reaches ())
+  if b == 0 then (assert (state 1 b == state 1 0); assert_norm (reaches_6174_from (state 1 0))) else
+  (assert (state 1 b == state 1 1); assert_norm (reaches_6174_from (state 1 1)))
 let state_reaches_alpha_2 (b:int{0 <= b /\ b <= 2}) : Lemma (reaches_6174_from (state 2 b)) =
-  if b == 0 then (assert (state 2 b == state 2 0); state_2_0_reaches ()) else
-  if b == 1 then (assert (state 2 b == state 2 1); state_2_1_reaches ()) else
-  (assert (state 2 b == state 2 2); state_2_2_reaches ())
+  if b == 0 then (assert (state 2 b == state 2 0); assert_norm (reaches_6174_from (state 2 0))) else
+  if b == 1 then (assert (state 2 b == state 2 1); assert_norm (reaches_6174_from (state 2 1))) else
+  (assert (state 2 b == state 2 2); assert_norm (reaches_6174_from (state 2 2)))
 let state_reaches_alpha_3 (b:int{0 <= b /\ b <= 3}) : Lemma (reaches_6174_from (state 3 b)) =
-  if b == 0 then (assert (state 3 b == state 3 0); state_3_0_reaches ()) else
-  if b == 1 then (assert (state 3 b == state 3 1); state_3_1_reaches ()) else
-  if b == 2 then (assert (state 3 b == state 3 2); state_3_2_reaches ()) else
-  (assert (state 3 b == state 3 3); state_3_3_reaches ())
+  if b == 0 then (assert (state 3 b == state 3 0); assert_norm (reaches_6174_from (state 3 0))) else
+  if b == 1 then (assert (state 3 b == state 3 1); assert_norm (reaches_6174_from (state 3 1))) else
+  if b == 2 then (assert (state 3 b == state 3 2); assert_norm (reaches_6174_from (state 3 2))) else
+  (assert (state 3 b == state 3 3); assert_norm (reaches_6174_from (state 3 3)))
 let state_reaches_alpha_4 (b:int{0 <= b /\ b <= 4}) : Lemma (reaches_6174_from (state 4 b)) =
-  if b == 0 then (assert (state 4 b == state 4 0); state_4_0_reaches ()) else
-  if b == 1 then (assert (state 4 b == state 4 1); state_4_1_reaches ()) else
-  if b == 2 then (assert (state 4 b == state 4 2); state_4_2_reaches ()) else
-  if b == 3 then (assert (state 4 b == state 4 3); state_4_3_reaches ()) else
-  (assert (state 4 b == state 4 4); state_4_4_reaches ())
+  if b == 0 then (assert (state 4 b == state 4 0); assert_norm (reaches_6174_from (state 4 0))) else
+  if b == 1 then (assert (state 4 b == state 4 1); assert_norm (reaches_6174_from (state 4 1))) else
+  if b == 2 then (assert (state 4 b == state 4 2); assert_norm (reaches_6174_from (state 4 2))) else
+  if b == 3 then (assert (state 4 b == state 4 3); assert_norm (reaches_6174_from (state 4 3))) else
+  (assert (state 4 b == state 4 4); assert_norm (reaches_6174_from (state 4 4)))
 let state_reaches_alpha_5 (b:int{0 <= b /\ b <= 5}) : Lemma (reaches_6174_from (state 5 b)) =
-  if b == 0 then (assert (state 5 b == state 5 0); state_5_0_reaches ()) else
-  if b == 1 then (assert (state 5 b == state 5 1); state_5_1_reaches ()) else
-  if b == 2 then (assert (state 5 b == state 5 2); state_5_2_reaches ()) else
-  if b == 3 then (assert (state 5 b == state 5 3); state_5_3_reaches ()) else
-  if b == 4 then (assert (state 5 b == state 5 4); state_5_4_reaches ()) else
-  (assert (state 5 b == state 5 5); state_5_5_reaches ())
+  if b == 0 then (assert (state 5 b == state 5 0); assert_norm (reaches_6174_from (state 5 0))) else
+  if b == 1 then (assert (state 5 b == state 5 1); assert_norm (reaches_6174_from (state 5 1))) else
+  if b == 2 then (assert (state 5 b == state 5 2); assert_norm (reaches_6174_from (state 5 2))) else
+  if b == 3 then (assert (state 5 b == state 5 3); assert_norm (reaches_6174_from (state 5 3))) else
+  if b == 4 then (assert (state 5 b == state 5 4); assert_norm (reaches_6174_from (state 5 4))) else
+  (assert (state 5 b == state 5 5); assert_norm (reaches_6174_from (state 5 5)))
 let state_reaches_alpha_6 (b:int{0 <= b /\ b <= 6}) : Lemma (reaches_6174_from (state 6 b)) =
-  if b == 0 then (assert (state 6 b == state 6 0); state_6_0_reaches ()) else
-  if b == 1 then (assert (state 6 b == state 6 1); state_6_1_reaches ()) else
-  if b == 2 then (assert (state 6 b == state 6 2); state_6_2_reaches ()) else
-  if b == 3 then (assert (state 6 b == state 6 3); state_6_3_reaches ()) else
-  if b == 4 then (assert (state 6 b == state 6 4); state_6_4_reaches ()) else
-  if b == 5 then (assert (state 6 b == state 6 5); state_6_5_reaches ()) else
-  (assert (state 6 b == state 6 6); state_6_6_reaches ())
+  if b == 0 then (assert (state 6 b == state 6 0); assert_norm (reaches_6174_from (state 6 0))) else
+  if b == 1 then (assert (state 6 b == state 6 1); assert_norm (reaches_6174_from (state 6 1))) else
+  if b == 2 then (assert (state 6 b == state 6 2); assert_norm (reaches_6174_from (state 6 2))) else
+  if b == 3 then (assert (state 6 b == state 6 3); assert_norm (reaches_6174_from (state 6 3))) else
+  if b == 4 then (assert (state 6 b == state 6 4); assert_norm (reaches_6174_from (state 6 4))) else
+  if b == 5 then (assert (state 6 b == state 6 5); assert_norm (reaches_6174_from (state 6 5))) else
+  (assert (state 6 b == state 6 6); assert_norm (reaches_6174_from (state 6 6)))
 let state_reaches_alpha_7 (b:int{0 <= b /\ b <= 7}) : Lemma (reaches_6174_from (state 7 b)) =
-  if b == 0 then (assert (state 7 b == state 7 0); state_7_0_reaches ()) else
-  if b == 1 then (assert (state 7 b == state 7 1); state_7_1_reaches ()) else
-  if b == 2 then (assert (state 7 b == state 7 2); state_7_2_reaches ()) else
-  if b == 3 then (assert (state 7 b == state 7 3); state_7_3_reaches ()) else
-  if b == 4 then (assert (state 7 b == state 7 4); state_7_4_reaches ()) else
-  if b == 5 then (assert (state 7 b == state 7 5); state_7_5_reaches ()) else
-  if b == 6 then (assert (state 7 b == state 7 6); state_7_6_reaches ()) else
-  (assert (state 7 b == state 7 7); state_7_7_reaches ())
+  if b == 0 then (assert (state 7 b == state 7 0); assert_norm (reaches_6174_from (state 7 0))) else
+  if b == 1 then (assert (state 7 b == state 7 1); assert_norm (reaches_6174_from (state 7 1))) else
+  if b == 2 then (assert (state 7 b == state 7 2); assert_norm (reaches_6174_from (state 7 2))) else
+  if b == 3 then (assert (state 7 b == state 7 3); assert_norm (reaches_6174_from (state 7 3))) else
+  if b == 4 then (assert (state 7 b == state 7 4); assert_norm (reaches_6174_from (state 7 4))) else
+  if b == 5 then (assert (state 7 b == state 7 5); assert_norm (reaches_6174_from (state 7 5))) else
+  if b == 6 then (assert (state 7 b == state 7 6); assert_norm (reaches_6174_from (state 7 6))) else
+  (assert (state 7 b == state 7 7); assert_norm (reaches_6174_from (state 7 7)))
 let state_reaches_alpha_8 (b:int{0 <= b /\ b <= 8}) : Lemma (reaches_6174_from (state 8 b)) =
-  if b == 0 then (assert (state 8 b == state 8 0); state_8_0_reaches ()) else
-  if b == 1 then (assert (state 8 b == state 8 1); state_8_1_reaches ()) else
-  if b == 2 then (assert (state 8 b == state 8 2); state_8_2_reaches ()) else
-  if b == 3 then (assert (state 8 b == state 8 3); state_8_3_reaches ()) else
-  if b == 4 then (assert (state 8 b == state 8 4); state_8_4_reaches ()) else
-  if b == 5 then (assert (state 8 b == state 8 5); state_8_5_reaches ()) else
-  if b == 6 then (assert (state 8 b == state 8 6); state_8_6_reaches ()) else
-  if b == 7 then (assert (state 8 b == state 8 7); state_8_7_reaches ()) else
-  (assert (state 8 b == state 8 8); state_8_8_reaches ())
+  if b == 0 then (assert (state 8 b == state 8 0); assert_norm (reaches_6174_from (state 8 0))) else
+  if b == 1 then (assert (state 8 b == state 8 1); assert_norm (reaches_6174_from (state 8 1))) else
+  if b == 2 then (assert (state 8 b == state 8 2); assert_norm (reaches_6174_from (state 8 2))) else
+  if b == 3 then (assert (state 8 b == state 8 3); assert_norm (reaches_6174_from (state 8 3))) else
+  if b == 4 then (assert (state 8 b == state 8 4); assert_norm (reaches_6174_from (state 8 4))) else
+  if b == 5 then (assert (state 8 b == state 8 5); assert_norm (reaches_6174_from (state 8 5))) else
+  if b == 6 then (assert (state 8 b == state 8 6); assert_norm (reaches_6174_from (state 8 6))) else
+  if b == 7 then (assert (state 8 b == state 8 7); assert_norm (reaches_6174_from (state 8 7))) else
+  (assert (state 8 b == state 8 8); assert_norm (reaches_6174_from (state 8 8)))
 let state_reaches_alpha_9 (b:int{0 <= b /\ b <= 9}) : Lemma (reaches_6174_from (state 9 b)) =
-  if b == 0 then (assert (state 9 b == state 9 0); state_9_0_reaches ()) else
-  if b == 1 then (assert (state 9 b == state 9 1); state_9_1_reaches ()) else
-  if b == 2 then (assert (state 9 b == state 9 2); state_9_2_reaches ()) else
-  if b == 3 then (assert (state 9 b == state 9 3); state_9_3_reaches ()) else
-  if b == 4 then (assert (state 9 b == state 9 4); state_9_4_reaches ()) else
-  if b == 5 then (assert (state 9 b == state 9 5); state_9_5_reaches ()) else
-  if b == 6 then (assert (state 9 b == state 9 6); state_9_6_reaches ()) else
-  if b == 7 then (assert (state 9 b == state 9 7); state_9_7_reaches ()) else
-  if b == 8 then (assert (state 9 b == state 9 8); state_9_8_reaches ()) else
-  (assert (state 9 b == state 9 9); state_9_9_reaches ())
+  if b == 0 then (assert (state 9 b == state 9 0); assert_norm (reaches_6174_from (state 9 0))) else
+  if b == 1 then (assert (state 9 b == state 9 1); assert_norm (reaches_6174_from (state 9 1))) else
+  if b == 2 then (assert (state 9 b == state 9 2); assert_norm (reaches_6174_from (state 9 2))) else
+  if b == 3 then (assert (state 9 b == state 9 3); assert_norm (reaches_6174_from (state 9 3))) else
+  if b == 4 then (assert (state 9 b == state 9 4); assert_norm (reaches_6174_from (state 9 4))) else
+  if b == 5 then (assert (state 9 b == state 9 5); assert_norm (reaches_6174_from (state 9 5))) else
+  if b == 6 then (assert (state 9 b == state 9 6); assert_norm (reaches_6174_from (state 9 6))) else
+  if b == 7 then (assert (state 9 b == state 9 7); assert_norm (reaches_6174_from (state 9 7))) else
+  if b == 8 then (assert (state 9 b == state 9 8); assert_norm (reaches_6174_from (state 9 8))) else
+  (assert (state 9 b == state 9 9); assert_norm (reaches_6174_from (state 9 9)))
 let state_reaches_6174 (a:alpha4) (b:int{0 <= b /\ b <= a}) : Lemma (reaches_6174_from (state a b)) =
   if a == 1 then (assert (state a b == state 1 b); state_reaches_alpha_1 b) else
   if a == 2 then (assert (state a b == state 2 b); state_reaches_alpha_2 b) else
