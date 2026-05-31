@@ -1,5 +1,7 @@
 module NegationOfImplication
 
+// open FStar.Tactics.Effect
+
 // The negation of an implication: 
 // "If P, then Q" (represented as P → Q) is "P and not Q" (represented as P ∧ ¬Q).
 // In other words, to negate an implication, you need to find a case where the antecedent (P) is true,
@@ -8,6 +10,19 @@ module NegationOfImplication
 
 let negation_of_implication (p: Type0) (q: Type0) : Lemma
   (ensures (~(p ==> q)) <==> (p /\ ~q)) =
+  ()
+
+// an implication p → q is equivalent to ¬p ∨ q
+let material_implication (p: Type0) (q: Type0) : Lemma
+  (ensures (p ==> q) <==> (~p \/ q)) =
+  ()
+
+let exportation_law (p: Type0) (q: Type0) (r: Type0) : Lemma
+  (ensures (p ==> (q ==> r)) <==> (q ==> (p ==> r))) =
+  ()
+
+let always_ok (p: Type0) (q: Type0): Lemma
+  (ensures (p ==> (p \/ q)) ) =
   ()
 
 // ∀x,y : xy=0 → x=0 ∨ y=0
